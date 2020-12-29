@@ -1,0 +1,2 @@
+# exOnReadyTrainee
+Ejercicio Trainee - OnReady
