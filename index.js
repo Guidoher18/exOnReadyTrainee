@@ -29,6 +29,7 @@ const vehiculo = [
     }
 ];
 
+//Muestro en Consola la información de los vehículos
 function visualizarComoMoneda(numero) {
     var a = numero.toString();//4000.00 >> 4000 | 3000.70 >> 3000.7
 
@@ -78,3 +79,38 @@ for (j = 0; j < vehiculo.length; j++) {
 }
 
 console.log("=============================");
+
+//Muestro las Comparaciones
+vehiculo.sort(function (a, b) {
+    if (a.precio > b.precio) {
+        return 1;
+    }
+    if (a.precio < b.precio) {
+        return -1;
+    }
+    // a must be equal to b
+    return 0;
+}
+);
+
+console.log("Vehículo más caro: " + vehiculo[vehiculo.length - 1].marca + " " + vehiculo[vehiculo.length - 1].modelo);
+
+console.log("Vehículo más barato: " + vehiculo[0].marca + " " + vehiculo[0].modelo);
+
+function marcaConY(array) {
+    for (l = 0; l < array.length; l++) {
+        if (array[l].marca.includes("Y")) {
+            return array[l].marca + " " + array[l].modelo + " " + visualizarComoMoneda(array[l].precio);
+        }
+    }
+}
+
+console.log("Vehículo que contiene en el modelo la letra ‘Y’: " + marcaConY(vehiculo));
+
+console.log("=============================");
+
+console.log("Vehículos ordenados por precio de mayor a menor: ");
+
+for (h = vehiculo.length - 1; h >= 0; h -= 1) {
+    console.log(vehiculo[h].marca + " " + vehiculo[h].modelo);
+}
